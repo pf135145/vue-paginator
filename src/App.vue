@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <VuePage :conf="pageConf"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import VuePage from './components/VuePage.vue';
 
 export default {
-  name: 'app',
+  data: function() {
+    return {
+      pageConf: {
+        totalCount: 70,
+        size: 10,
+        showLen: 5,
+        changeFn: this.pageChangeFn
+      }
+    }
+  },
   components: {
-    HelloWorld
+    VuePage
+  },
+  methods: {
+    pageChangeFn() {
+      console.log(1111);
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
